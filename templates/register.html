@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content%}
+    <div class="container">
+        <h1>Register</h1>
+        {% from "includes/_formhelpers.html" import render_field %}
+        <form method='POST' action="">
+            {{ form.hidden_tag }}
+            <div class=form-group>
+                {{ render_field(form.name, class_="form-control") }}
+            </div>
+            <div class=form-group>
+                {{ render_field(form.username, class_="form-control") }}
+            </div>
+            <div class=form-group>
+                {{ render_field(form.email, class_="form-control") }}
+            </div>
+            <div class=form-group>
+                {{ render_field(form.password, class_="form-control") }}
+            </div>
+            <div class=form-group>
+                {{ render_field(form.confirm_password, class_="form-control") }}
+            </div>
+            <small><span class="text-muted mb-2">Already have an account? <a href="{{ url_for('login') }}">Login</a></span></small><br>
+            <input type="submit" class="btn btn-info" value="Register">
+        </form>
+    </div>
+{% endblock %}
